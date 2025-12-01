@@ -44,7 +44,11 @@ def main():
     opcion=True
     while opcion:
         os.system("clear")
+<<<<<<< HEAD
         opcion=input("\n\t\t .:: Menu Principal ::.\n\t1.- Autos\n\t2.-Camionetas\n\t3.-Camiones\n\t4.-Salir\n\tElige un opción: ").lower().strip()
+=======
+        opcion=input("\n\t\t ::: Menu Principal ::.\n\t1.- Autos\n\t2.-Camionetas\n\t3.-Camiones\n\t4.-Salir\n\tElige un opción: ").lower().strip()
+>>>>>>> 8e61c9a1959ff5c6e0ce93371cba338e259fc566
         match opcion:
             case "1":
                 autos()

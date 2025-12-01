@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Calculadora:
     def __init__(self,n1,n2):
         self._n1=n1
@@ -20,3 +21,27 @@ print(operacion.sumar())
 print(operacion.restar())
 print(operacion.multiplicar())
 print(operacion.dividir())
+=======
+class Calculadora:
+    def __init__(self,n1,n2):
+        self._n1=n1
+        self._n2=n2
+
+    def sumar(self):
+        return self._n1+self._n2
+    def restar(self):
+        return self._n1-self._n2
+    def multiplicar(self):
+        return self._n1*self._n2
+    def dividir(self):
+        return self._n1/self._n2
+    
+n1=int(input("Numero #1: "))
+n2=int(input("Nummero #2: "))
+
+operacion=Calculadora(n1,n2)
+print(operacion.sumar())
+print(operacion.restar())
+print(operacion.multiplicar())
+print(operacion.dividir())
+>>>>>>> 8e61c9a1959ff5c6e0ce93371cba338e259fc566
