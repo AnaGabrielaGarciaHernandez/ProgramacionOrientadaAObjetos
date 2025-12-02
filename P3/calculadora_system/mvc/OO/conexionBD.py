@@ -2,11 +2,11 @@ import mysql.connector
 
 try:
     conexion=mysql.connector.connect(
-        port=3306,
-        host="127.0.0.1",
+        port=3307,
+        host="localhost",
         user="root",
-        password="admin",
-        database="bd_calculadora_basica"
+        password="",
+        database="bd_operaciones_basicas"
     )
     cursor=conexion.cursor(buffered=True)
 except:
