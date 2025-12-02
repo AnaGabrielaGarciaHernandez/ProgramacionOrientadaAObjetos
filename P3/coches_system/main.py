@@ -15,6 +15,23 @@
         Modulo main
         Interaccion con interfaces
         Nombre del commit: "commit_01_12_25
+
+2 DICIEMBRE
+    1) INTERFACES
+        1.1 insertar_camionetas()
+        1.2 consultar_camionetas()
+        1.3 cambiar_camionetas()
+        1.4 borrar_camionetas()
+
+        2.1 insertar_camiones()
+        2.2 consultar_camiones()
+        2.3 cambiar_camiones()
+        2.4 borrar_camiones()
+
+    ENTREGABLES
+        Interaccion con todas las interfaces
+        Nombre del Commit: "commit_02_12_25"
+    
 """
 
 from view import vista1

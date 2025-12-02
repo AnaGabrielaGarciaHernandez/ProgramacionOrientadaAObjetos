@@ -45,17 +45,44 @@ class View:
         lbl_opcion=Label(ventana,text="Elige una opcion...",justify="center")
         lbl_opcion.pack(pady=10)
 
-        btn_insertar=Button(ventana,text="Insertar",command=lambda: View.insertar_autos(ventana),justify="center")
-        btn_insertar.pack(pady=10)
+        if tipo=="Autos":
+            btn_insertar=Button(ventana,text="Insertar",command=lambda: View.insertar_autos(ventana),justify="center")
+            btn_insertar.pack(pady=10)
 
-        btn_consultar=Button(ventana,text="Consultar",command=lambda:View.consultar_autos(ventana),justify="center")
-        btn_consultar.pack(pady=10)
+            btn_consultar=Button(ventana,text="Consultar",command=lambda:View.consultar_autos(ventana),justify="center")
+            btn_consultar.pack(pady=10)
 
-        btn_actualizar=Button(ventana,text="Actualizar",command=lambda:View.buscar_id(ventana,"cambiar"),justify="center")
-        btn_actualizar.pack(pady=10)
+            btn_actualizar=Button(ventana,text="Actualizar",command=lambda:View.buscar_id_carro(ventana,"cambiar"),justify="center")
+            btn_actualizar.pack(pady=10)
 
-        btn_eliminar=Button(ventana,text="Eliminar",command=lambda:View.buscar_id(ventana,"borrar"),justify="center")
-        btn_eliminar.pack(pady=10)
+            btn_eliminar=Button(ventana,text="Eliminar",command=lambda:View.buscar_id_carro(ventana,"borrar"),justify="center")
+            btn_eliminar.pack(pady=10)
+
+        elif tipo=="Camionetas":
+            btn_insertar=Button(ventana,text="Insertar",command=lambda: View.insertar_camionetas(ventana),justify="center")
+            btn_insertar.pack(pady=10)
+
+            btn_consultar=Button(ventana,text="Consultar",command=lambda:View.consultar_camionetas(ventana),justify="center")
+            btn_consultar.pack(pady=10)
+
+            btn_actualizar=Button(ventana,text="Actualizar",command=lambda:View.buscar_id_camioneta(ventana,"cambiar"),justify="center")
+            btn_actualizar.pack(pady=10)
+
+            btn_eliminar=Button(ventana,text="Eliminar",command=lambda:View.buscar_id_camioneta(ventana,"borrar"),justify="center")
+            btn_eliminar.pack(pady=10)
+
+        elif tipo=="Camiones":
+            btn_insertar=Button(ventana,text="Insertar",command=lambda: View.insertar_camiones(ventana),justify="center")
+            btn_insertar.pack(pady=10)
+
+            btn_consultar=Button(ventana,text="Consultar",command=lambda:View.consultar_camiones(ventana),justify="center")
+            btn_consultar.pack(pady=10)
+
+            btn_actualizar=Button(ventana,text="Actualizar",command=lambda:View.buscar_id_camion(ventana,"cambiar"),justify="center")
+            btn_actualizar.pack(pady=10)
+
+            btn_eliminar=Button(ventana,text="Eliminar",command=lambda:View.buscar_id_camion(ventana,"borrar"),justify="center")
+            btn_eliminar.pack(pady=10)
 
         btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_principal(ventana),justify="center")
         btn_regresar.pack(pady=10)
@@ -202,7 +229,7 @@ class View:
             btn_regresar.pack(pady=10)
 
     @staticmethod
-    def buscar_id(ventana,tipo):
+    def buscar_id_carro(ventana,tipo):
         View.borrarPantalla(ventana)
      
         lbl_1=Label(ventana,text=".:: Buscar un Coche ::.")
@@ -220,5 +247,376 @@ class View:
         elif tipo=="borrar":
             Button(ventana,text="Buscar",command=lambda: View.eliminar_auto(ventana)).pack(pady=5)
         
+    @staticmethod
+    def insertar_camionetas(ventana):
+        View.borrarPantalla(ventana)
+        lbl_titulo=Label(ventana,text=f".: Ingresar los datos del vehiculo :.",justify="center")
+        lbl_titulo.pack(pady=10)
+
+        lbl_marca=Label(ventana,text="Marca: ",justify="center")
+        lbl_marca.pack(pady=5)
+        txt_marca=Entry(ventana)
+        txt_marca.focus()
+        txt_marca.pack(pady=5)
+
+        lbl_color=Label(ventana,text="Color: ",justify="center")
+        lbl_color.pack(pady=5)
+        txt_color=Entry(ventana)
+        txt_color.pack(pady=5)
+
+        lbl_modelo=Label(ventana,text="Modelo: ",justify="center")
+        lbl_modelo.pack(pady=5)
+        txt_modelo=Entry(ventana)
+        txt_modelo.pack(pady=5)
+
+        lbl_velocidad=Label(ventana,text="Velocidad: ",justify="center")
+        lbl_velocidad.pack(pady=5)
+        txt_velocidad=Entry(ventana)
+        txt_velocidad.pack(pady=5)
+
+        lbl_potencia=Label(ventana,text="Potencia: ",justify="center")
+        lbl_potencia.pack(pady=5)
+        txt_potencia=Entry(ventana)
+        txt_potencia.pack(pady=5)
+
+        lbl_plazas=Label(ventana,text="No. Plazas: ",justify="center")
+        lbl_plazas.pack(pady=5)
+        txt_plazas=Entry(ventana)
+        txt_plazas.pack(pady=5)
+
+        lbl_traccion=Label(ventana,text="Traccion: ",justify="center")
+        lbl_traccion.pack(pady=5)
+        txt_traccion=Entry(ventana)
+        txt_traccion.pack(pady=5)
+
+        lbl_cerrada=Label(ventana,text="Cerrada (SI/NO): ",justify="center")
+        lbl_cerrada.pack(pady=5)
+        txt_cerrada=Entry(ventana)
+        txt_cerrada.pack(pady=5)
+        if lbl_cerrada=="SI":
+            lbl_cerrada=TRUE
+        else:
+            lbl_cerrada=FALSE
+
+        btn_guardar=Button(ventana,text="Guardar",command=lambda:"",justify="center")
+        btn_guardar.pack(pady=10)
+
+        btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camionetas"),justify="center")
+        btn_regresar.pack(pady=10)
+
+    @staticmethod
+    def consultar_camionetas(ventana):
+        View.borrarPantalla(ventana)
+        lbl_titulo=Label(ventana,text=".: Mostrar Camionetas :.",justify="center")
+        lbl_titulo.pack(pady=10)
+
+        filas=""
+        registros=[(1,"Jeep","rojo",2015,123,321,3,123,"SI")]
+        num_registro=1
+        if len(registros)>0:
+            for fila in registros:
+                filas=filas+f"Camioneta: {num_registro} \n ID: {fila[0]} \n Marca: {fila[1]} \n Color: {fila[2]} \n Modelo: {fila[3]} \n Velocidad: {fila[4]} \n Potencia: {fila[5]} \n No Plazas: {fila[6]} \n Traccion: {fila[7]} \n Cerrada: {fila[8]}"
+                num_registro+=1
+        else:
+            messagebox.showwarning(icon="warning",message="No existen registros...")
+
+        lbl_resultado=Label(ventana,text=f"{filas}")
+        lbl_resultado.pack(pady=10)
+        btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camionetas"),justify="center")
+        btn_regresar.pack(pady=10)
+        
+    @staticmethod
+    def cambiar_camionetas(ventana):
+        registro=""
+        if registro is None:
+            messagebox.showinfo(icon="info",message="No existe esta operacion en la BD")
+        else:
+            View.borrarPantalla(ventana)
+            lbl_1=Label(ventana,text=".:: Cambiar una Camionetas ::.")
+            lbl_1.pack(pady=10)
+
+            lbl_id=Label(ventana,text="ID de la Camioneta: ")
+            lbl_id.pack(pady=5)
+            id=IntVar()
+            txt_id=Entry(ventana,textvariable=id,width=5,justify="right",state="readonly")
+            txt_id.focus()
+            txt_id.pack(pady=5)
+            
+            lbl_marca=Label(ventana,text="Marca: ",justify="center")
+            lbl_marca.pack(pady=5)
+            txt_marca=Entry(ventana)
+            txt_marca.pack(pady=5)
+
+            lbl_color=Label(ventana,text="Color: ",justify="center")
+            lbl_color.pack(pady=5)
+            txt_color=Entry(ventana)
+            txt_color.pack(pady=5)
+
+            lbl_modelo=Label(ventana,text="Modelo: ",justify="center")
+            lbl_modelo.pack(pady=5)
+            txt_modelo=Entry(ventana)
+            txt_modelo.pack(pady=5)
+
+            lbl_velocidad=Label(ventana,text="Velocidad: ",justify="center")
+            lbl_velocidad.pack(pady=5)
+            txt_velocidad=Entry(ventana)
+            txt_velocidad.pack(pady=5)
+
+            lbl_potencia=Label(ventana,text="Potencia: ",justify="center")
+            lbl_potencia.pack(pady=5)
+            txt_potencia=Entry(ventana)
+            txt_potencia.pack(pady=5)
+
+            lbl_plazas=Label(ventana,text="No. Plazas: ",justify="center")
+            lbl_plazas.pack(pady=5)
+            txt_plazas=Entry(ventana)
+            txt_plazas.pack(pady=5)
+
+            lbl_traccion=Label(ventana,text="Traccion: ",justify="center")
+            lbl_traccion.pack(pady=5)
+            txt_traccion=Entry(ventana)
+            txt_traccion.pack(pady=5)
+
+            lbl_cerrada=Label(ventana,text="Cerrada (SI/NO): ",justify="center")
+            lbl_cerrada.pack(pady=5)
+            txt_cerrada=Entry(ventana)
+            txt_cerrada.pack(pady=5)
+            if lbl_cerrada=="SI":
+                lbl_cerrada=TRUE
+            else:
+                lbl_cerrada=FALSE
+
+            btn_guardar=Button(ventana,text="Guardar",command=lambda:"",justify="center")
+            btn_guardar.pack(pady=10)
+
+            btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camionetas"),justify="center")
+            btn_regresar.pack(pady=10)
+
+    @staticmethod
+    def eliminar_camionetas(ventana):
+        registro=""
+        if registro is None:
+            messagebox.showinfo(icon="info",message="No existen esta registros la BD")
+        else:
+            View.borrarPantalla(ventana)
+            lbl_1=Label(ventana,text="..:: Eliminar un Registro ::..")
+            lbl_1.pack(pady=10)
+
+            lbl_2=Label(ventana,text="ID de la Camioneta: ")
+            lbl_2.pack(pady=5)
+            id=IntVar()
+
+            txt_id_eliminar=Entry(ventana,textvariable=id,width=5)
+            txt_id_eliminar.focus()
+            txt_id_eliminar.pack(pady=5)
+
+            btn_eliminar=Button(ventana,text="Eliminar",command=lambda:"",justify="center")
+            btn_eliminar.pack(pady=10)
+
+            btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camionetas"),justify="center")
+            btn_regresar.pack(pady=10)
+
+    @staticmethod
+    def buscar_id_camioneta(ventana,tipo):
+        View.borrarPantalla(ventana)
+     
+        lbl_1=Label(ventana,text=".:: Buscar una Camioneta ::.")
+        lbl_1.pack(pady=10)
+       
+        lbl_id=Label(ventana,text="ID de la Camioneta a Buscar: ")
+        lbl_id.pack(pady=5)
+        id=IntVar()
+        txt_id=Entry(ventana,textvariable=id,width=5,justify="right")
+        txt_id.focus()
+        txt_id.pack(pady=5)
+        
+        if tipo=="cambiar":
+            Button(ventana,text="Buscar",command=lambda: View.cambiar_camionetas(ventana)).pack(pady=5)
+        elif tipo=="borrar":
+            Button(ventana,text="Buscar",command=lambda: View.eliminar_camionetas(ventana)).pack(pady=5)
+        
+    @staticmethod
+    def insertar_camiones(ventana):
+        View.borrarPantalla(ventana)
+        lbl_titulo=Label(ventana,text=f".: Ingresar los datos del vehiculo :.",justify="center")
+        lbl_titulo.pack(pady=10)
+
+        lbl_marca=Label(ventana,text="Marca: ",justify="center")
+        lbl_marca.pack(pady=5)
+        txt_marca=Entry(ventana)
+        txt_marca.focus()
+        txt_marca.pack(pady=5)
+
+        lbl_color=Label(ventana,text="Color: ",justify="center")
+        lbl_color.pack(pady=5)
+        txt_color=Entry(ventana)
+        txt_color.pack(pady=5)
+
+        lbl_modelo=Label(ventana,text="Modelo: ",justify="center")
+        lbl_modelo.pack(pady=5)
+        txt_modelo=Entry(ventana)
+        txt_modelo.pack(pady=5)
+
+        lbl_velocidad=Label(ventana,text="Velocidad: ",justify="center")
+        lbl_velocidad.pack(pady=5)
+        txt_velocidad=Entry(ventana)
+        txt_velocidad.pack(pady=5)
+
+        lbl_potencia=Label(ventana,text="Potencia: ",justify="center")
+        lbl_potencia.pack(pady=5)
+        txt_potencia=Entry(ventana)
+        txt_potencia.pack(pady=5)
+
+        lbl_plazas=Label(ventana,text="No. Plazas: ",justify="center")
+        lbl_plazas.pack(pady=5)
+        txt_plazas=Entry(ventana)
+        txt_plazas.pack(pady=5)
+
+        lbl_eje=Label(ventana,text="No ejes: ",justify="center")
+        lbl_eje.pack(pady=5)
+        txt_eje=Entry(ventana)
+        txt_eje.pack(pady=5)
+
+        lbl_capacidad=Label(ventana,text="Capacidad de Carga: ",justify="center")
+        lbl_capacidad.pack(pady=5)
+        txt_capacidad=Entry(ventana)
+        txt_capacidad.pack(pady=5)
+
+        btn_guardar=Button(ventana,text="Guardar",command=lambda:"",justify="center")
+        btn_guardar.pack(pady=10)
+
+        btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camiones"),justify="center")
+        btn_regresar.pack(pady=10)
+
+    @staticmethod
+    def consultar_camiones(ventana):
+        View.borrarPantalla(ventana)
+        lbl_titulo=Label(ventana,text=".: Mostrar Camiones :.",justify="center")
+        lbl_titulo.pack(pady=10)
+
+        filas=""
+        registros=[(1,"Jeep","rojo",2015,123,321,3,123,356)]
+        num_registro=1
+        if len(registros)>0:
+            for fila in registros:
+                filas=filas+f"Camioneta: {num_registro} \n ID: {fila[0]} \n Marca: {fila[1]} \n Color: {fila[2]} \n Modelo: {fila[3]} \n Velocidad: {fila[4]} \n Potencia: {fila[5]} \n No Plazas: {fila[6]} \n No. Ejes: {fila[7]} \n Capacidad de Carga: {fila[8]}"
+                num_registro+=1
+        else:
+            messagebox.showwarning(icon="warning",message="No existen registros...")
+
+        lbl_resultado=Label(ventana,text=f"{filas}")
+        lbl_resultado.pack(pady=10)
+        btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camiones"),justify="center")
+        btn_regresar.pack(pady=10)
+        
+    @staticmethod
+    def cambiar_camiones(ventana):
+        registro=""
+        if registro is None:
+            messagebox.showinfo(icon="info",message="No existe esta operacion en la BD")
+        else:
+            View.borrarPantalla(ventana)
+            lbl_1=Label(ventana,text=".:: Cambiar un Camion ::.")
+            lbl_1.pack(pady=10)
+
+            lbl_id=Label(ventana,text="ID del Camion: ")
+            lbl_id.pack(pady=5)
+            id=IntVar()
+            txt_id=Entry(ventana,textvariable=id,width=5,justify="right",state="readonly")
+            txt_id.focus()
+            txt_id.pack(pady=5)
+            
+            lbl_marca=Label(ventana,text="Marca: ",justify="center")
+            lbl_marca.pack(pady=5)
+            txt_marca=Entry(ventana)
+            txt_marca.pack(pady=5)
+
+            lbl_color=Label(ventana,text="Color: ",justify="center")
+            lbl_color.pack(pady=5)
+            txt_color=Entry(ventana)
+            txt_color.pack(pady=5)
+
+            lbl_modelo=Label(ventana,text="Modelo: ",justify="center")
+            lbl_modelo.pack(pady=5)
+            txt_modelo=Entry(ventana)
+            txt_modelo.pack(pady=5)
+
+            lbl_velocidad=Label(ventana,text="Velocidad: ",justify="center")
+            lbl_velocidad.pack(pady=5)
+            txt_velocidad=Entry(ventana)
+            txt_velocidad.pack(pady=5)
+
+            lbl_potencia=Label(ventana,text="Potencia: ",justify="center")
+            lbl_potencia.pack(pady=5)
+            txt_potencia=Entry(ventana)
+            txt_potencia.pack(pady=5)
+
+            lbl_plazas=Label(ventana,text="No. Plazas: ",justify="center")
+            lbl_plazas.pack(pady=5)
+            txt_plazas=Entry(ventana)
+            txt_plazas.pack(pady=5)
+
+            lbl_eje=Label(ventana,text="No ejes: ",justify="center")
+            lbl_eje.pack(pady=5)
+            txt_eje=Entry(ventana)
+            txt_eje.pack(pady=5)
+
+            lbl_capacidad=Label(ventana,text="Capacidad de Carga: ",justify="center")
+            lbl_capacidad.pack(pady=5)
+            txt_capacidad=Entry(ventana)
+            txt_capacidad.pack(pady=5)
+
+            btn_guardar=Button(ventana,text="Guardar",command=lambda:"",justify="center")
+            btn_guardar.pack(pady=10)
+
+            btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camiones"),justify="center")
+            btn_regresar.pack(pady=10)
+
+    @staticmethod
+    def eliminar_camiones(ventana):
+        registro=""
+        if registro is None:
+            messagebox.showinfo(icon="info",message="No existen esta registros la BD")
+        else:
+            View.borrarPantalla(ventana)
+            lbl_1=Label(ventana,text="..:: Eliminar un Registro ::..")
+            lbl_1.pack(pady=10)
+
+            lbl_2=Label(ventana,text="ID del Camion: ")
+            lbl_2.pack(pady=5)
+            id=IntVar()
+
+            txt_id_eliminar=Entry(ventana,textvariable=id,width=5)
+            txt_id_eliminar.focus()
+            txt_id_eliminar.pack(pady=5)
+
+            btn_eliminar=Button(ventana,text="Eliminar",command=lambda:"",justify="center")
+            btn_eliminar.pack(pady=10)
+
+            btn_regresar=Button(ventana,text="Regresar",command=lambda:View.menu_acciones(ventana,"Camiones"),justify="center")
+            btn_regresar.pack(pady=10)
+
+    @staticmethod
+    def buscar_id_camion(ventana,tipo):
+        View.borrarPantalla(ventana)
+     
+        lbl_1=Label(ventana,text=".:: Buscar un Camion ::.")
+        lbl_1.pack(pady=10)
+       
+        lbl_id=Label(ventana,text="ID del Camion a Buscar: ")
+        lbl_id.pack(pady=5)
+        id=IntVar()
+        txt_id=Entry(ventana,textvariable=id,width=5,justify="right")
+        txt_id.focus()
+        txt_id.pack(pady=5)
+        
+        if tipo=="cambiar":
+            Button(ventana,text="Buscar",command=lambda: View.cambiar_camiones(ventana)).pack(pady=5)
+        elif tipo=="borrar":
+            Button(ventana,text="Buscar",command=lambda: View.eliminar_camiones(ventana)).pack(pady=5)
+        
+
+
+
 
 
