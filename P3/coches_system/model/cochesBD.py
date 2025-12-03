@@ -30,7 +30,7 @@ class Autos:
             return []
         
     @staticmethod
-    def actualizar(marca, color, modelo, velocidad, caballaje, plazas,id):
+    def actualizar(id,marca, color, modelo, velocidad, caballaje, plazas):
         try:
             cursor.execute(
                 "update autos set marca=%s, color=%s, modelo=%s, velocidad=%s, caballaje=%s, plazas=%s where id_carro=%s",
@@ -87,7 +87,7 @@ class Camionetas:
             return []
     
     @staticmethod
-    def actualizar(marca, color, modelo, velocidad, caballaje, plazas,traccion, cerrada, id):
+    def actualizar(id,marca, color, modelo, velocidad, caballaje, plazas,traccion, cerrada):
         try:
             cursor.execute(
                 "update camionetas set marca=%s, color=%s, modelo=%s, velocidad=%s, caballaje=%s, plazas=%s,traccion=%s, cerrada=%s where id_camioneta=%s",
@@ -143,7 +143,7 @@ class Camiones:
             return []     
         
     @staticmethod
-    def actualizar(marca, color, modelo, velocidad, caballaje, plazas,eje,capacidadCarga, id):
+    def actualizar(id,marca, color, modelo, velocidad, caballaje, plazas,eje,capacidadCarga):
         try:
             cursor.execute(
                 "update camiones set marca=%s, color=%s, modelo=%s, velocidad=%s, caballaje=%s, plazas=%s,eje=%s, capacidadCarga=%s where id_camion=%s",
