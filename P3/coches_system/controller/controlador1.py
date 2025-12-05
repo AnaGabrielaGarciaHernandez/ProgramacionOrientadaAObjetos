@@ -66,5 +66,33 @@ class Controlador:
         else:
             messagebox.showinfo(message="No se encontró el id")
 
+    @staticmethod
+    def insertar_camiones(marca, color, modelo, velocidad, caballaje, plaza,ejes,capacidad):
+        respuesta=cochesBD.Camiones.insertar(marca, color, modelo, velocidad, caballaje, plaza,ejes,capacidad)
+        Controlador.respuesta_sql(respuesta)
+
+    @staticmethod
+    def consultar_camiones():
+        registro=cochesBD.Camiones.consultar()
+        return registro
+    
+    @staticmethod
+    def cambiar_camiones(id,marca, color, modelo, velocidad, caballaje, plaza,ejes,capacidad):
+        cambio=cochesBD.Camiones.actualizar(id,marca, color, modelo, velocidad, caballaje, plaza,ejes,capacidad)
+        Controlador.respuesta_sql(cambio)
+
+    @staticmethod
+    def eliminar_camiones(id):
+        respuesta=cochesBD.Camiones.eliminar(id)
+        Controlador.respuesta_sql(respuesta)
+
+    @staticmethod
+    def buscar_camiones(id):
+        operacion=cochesBD.Camiones.consultar_id(id)
+        if operacion:
+            return operacion
+        else:
+            messagebox.showinfo(message="No se encontró el id")
+
 
             
